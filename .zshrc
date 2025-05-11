@@ -134,4 +134,4 @@ load-nvmrc
 fpath=($fpath "/home/rxgoa/.zfunctions")
 eval "$(starship init zsh)"
 
-export STARSHIP_CONFIG="~/.config/latte.toml"
+export STARSHIP_CONFIG="~/.config/starship/latte.toml"
