@@ -135,3 +135,9 @@ fpath=($fpath "/home/rxgoa/.zfunctions")
 eval "$(starship init zsh)"
 
 export STARSHIP_CONFIG="~/.config/starship/latte.toml"
+
+if [[ -n $(command -v wsl.exe) ]]; then
+  export DISPLAY=$(grep -oE 'inet .* broadcast' /etc/resolv.conf | awk '{print $2}'):0
+fi
+
+alias doom="~/.emacs.d/bin/doom"
