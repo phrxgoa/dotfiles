@@ -70,7 +70,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+plugins=(
+	git
+	zsh-autosuggestions		
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,10 +138,10 @@ load-nvmrc
 fpath=($fpath "/home/rxgoa/.zfunctions")
 
 export PATH=$PATH:/home/rxgoa/.local/bin
-#eval "$(starship init zsh)"
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
+eval "$(starship init zsh)"
+#eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
 
-#export STARSHIP_CONFIG="~/.config/starship/latte.toml"
+export STARSHIP_CONFIG="~/.config/starship/latte.toml"
 
 if [[ -n $(command -v wsl.exe) ]]; then
   export DISPLAY=$(grep -oE 'inet .* broadcast' /etc/resolv.conf | awk '{print $2}'):0
@@ -148,3 +152,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
