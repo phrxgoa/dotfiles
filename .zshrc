@@ -132,12 +132,19 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 fpath=($fpath "/home/rxgoa/.zfunctions")
-eval "$(starship init zsh)"
 
-export STARSHIP_CONFIG="~/.config/starship/latte.toml"
+export PATH=$PATH:/home/rxgoa/.local/bin
+#eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
+
+#export STARSHIP_CONFIG="~/.config/starship/latte.toml"
 
 if [[ -n $(command -v wsl.exe) ]]; then
   export DISPLAY=$(grep -oE 'inet .* broadcast' /etc/resolv.conf | awk '{print $2}'):0
 fi
 
 alias doom="~/.emacs.d/bin/doom"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
